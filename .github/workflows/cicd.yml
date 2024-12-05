@@ -14,9 +14,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Install dependencies
+      - name: Install dependencies
+        run: make install
+
       # Test the flask application
       - name: Test Email Generator
         run: make test
+
+      # Format the code
+      - name: Format the code
+        run: make format
+
+      # Lint the code
+      - name: Lint the code
+        run: make lint
 
       # Log in to Docker Hub
       - name: Log in to Docker Hub

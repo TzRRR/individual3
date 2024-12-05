@@ -2,6 +2,10 @@
 IMAGE_NAME = email-generator-app
 DOCKER_ID_USER = tzrrr
 
+# Install dependencies
+install:
+	pip install -r requirements.txt
+
 # Build the Docker image
 build:
 	docker build -t $(IMAGE_NAME) .
@@ -35,3 +39,9 @@ login:
 # test the flask app
 test:
 	pytest test_app.py
+
+format:	
+	black *.py 
+
+lint:
+	ruff check *.py
