@@ -36,7 +36,7 @@ jobs:
 
       # Build the Docker image
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/email-generator-app:latest .
+        run: docker build --build-arg OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} -t ${{ secrets.DOCKER_USERNAME }}/email-generator-app:latest .
 
       # Push the Docker image to Docker Hub
       - name: Push Docker image

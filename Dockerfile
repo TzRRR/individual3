@@ -17,5 +17,6 @@ EXPOSE 5001
 CMD ["python", "app.py"]
 
 # Copy the .env file to the container
-COPY .env /app/.env
+ARG OPENAI_API_KEY
+ENV OPENAI_API_KEY=$OPENAI_API_KEY
 
